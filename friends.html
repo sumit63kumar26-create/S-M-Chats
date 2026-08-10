@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Friends</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0f0f0f;
+color:white;
+}
+
+.header{
+height:60px;
+background:#1b1b1b;
+display:flex;
+align-items:center;
+padding:0 15px;
+border-bottom:1px solid #333;
+}
+
+#backBtn{
+font-size:50px;
+cursor:pointer;
+margin-right:15px;
+margin-top:-20px;
+}
+
+.title{
+font-size:15px;
+font-weight:bold;
+}
+
+.container{
+padding:15px;
+}
+
+.count{
+  margin-left: 125px;
+font-size:17px;
+margin-bottom:15px;
+font-weight:800;
+align-items: center;
+justify-items:center;
+}
+
+.friendCard{
+background:#1e1e1e;
+padding:18px;
+border-radius:12px;
+margin-bottom:12px;
+cursor:pointer;
+transition:.2s;
+}
+
+.friendCard:active{
+transform:scale(.98);
+}
+
+.friendName{
+font-size:18px;
+}
+
+.empty{
+text-align:center;
+margin-top:40px;
+opacity:.7;
+font-size:18px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<div id="backBtn">
+←
+</div>
+
+<div class="title">
+Friends
+</div>
+
+</div>
+
+<div class="container">
+
+<div class="count">
+
+Friends (<span id="friendsCount">0</span>)
+
+</div>
+
+<div id="friendsList">
+
+</div>
+
+</div>
+
+<script type="module" src="friends.js"></script>
+
+</body>
+</html>
