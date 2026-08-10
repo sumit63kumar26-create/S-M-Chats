@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Blocked Users</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0f0f0f;
+color:white;
+}
+
+.header{
+height:60px;
+background:#1b1b1b;
+display:flex;
+align-items:center;
+padding:0 15px;
+border-bottom:1px solid #333;
+}
+
+#backBtn{
+font-size:50px;
+cursor:pointer;
+margin-right:15px;
+margin-top:-20px;
+}
+
+.title{
+font-size:15px;
+font-weight:bold;
+}
+
+.container{
+padding:15px;
+}
+
+.count{
+font-weight:800;
+font-size:17px;
+margin-bottom:15px;
+margin-left: 100px;
+}
+
+.userCard{
+background:#1e1e1e;
+padding:18px;
+border-radius:12px;
+margin-bottom:12px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.userName{
+font-size:18px;
+}
+
+.unblockBtn{
+background:#ff9800;
+color:white;
+border:none;
+padding:8px 18px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.unblockBtn:active{
+transform:scale(.95);
+}
+
+.empty{
+text-align:center;
+margin-top:40px;
+opacity:.7;
+font-size:18px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<div id="backBtn">
+←
+</div>
+
+<div class="title">
+Blocked Users
+</div>
+
+</div>
+
+<div class="container">
+
+<div class="count">
+
+Blocked Users (<span id="blockedCount">0</span>)
+
+</div>
+
+<div id="blockedList">
+
+</div>
+
+</div>
+
+<script type="module" src="blocked.js"></script>
+
+</body>
+</html>

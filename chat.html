@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S Chat</title>
+    
+    <link rel="stylesheet" href="chat.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background: #111;
+            color: white;
+        }
+        
+        /* Top Bar */
+        
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 18px;
+            background: #1b1b1b;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+        }
+        
+        .topbar h2 {
+            font-size: 22px;
+            color: #00c853;
+        }
+        
+        .icon {
+            font-size: 26px;
+            cursor: pointer;
+        }
+        
+        /* Search */
+        
+        .searchBox {
+            padding: 15px;
+        }
+        
+        .searchBox input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            outline: none;
+            border-radius: 12px;
+            background: #222;
+            color: white;
+            font-size: 16px;
+        }
+        
+        /* Friends */
+        
+        .friendsSection {
+            padding: 15px;
+        }
+        
+        #friendsCount {
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+        
+        .friendCard {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #1b1b1b;
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: .3s;
+        }
+        
+        .friendCard:hover {
+            background: #252525;
+        }
+        
+.profile {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #4FC3F7; /* Sky Blue */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.profile img {
+    width: 40px;
+    height: 40px;
+    filter: brightness(0) invert(1); /* White icon */
+}
+
+#profileBtn,
+#settingsBtn {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#profileBtn svg,
+#settingsBtn svg {
+    width: 24px;
+    height: 24px;
+    transition: .25s;
+}
+
+#profileBtn:active svg,
+#settingsBtn:active svg {
+    transform: scale(.9);
+}
+        
+        .info {
+            flex: 1;
+        }
+        
+        .info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .info p {
+            color: #aaa;
+            font-size: 10px;
+        }
+        
+        /* Mobile */
+        
+        @media(max-width:600px) {
+            
+            .topbar h2 {
+                font-size: 20px;
+                color:white;
+                font-weight:bold;
+            }
+            
+            .profile {
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+                
+            }
+            
+            /* Bottom Navigation */
+            
+            .bottomNav {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 40px;
+                
+                background: #1b1b1b;
+                
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                
+                border-top: 1px solid #333;
+            }
+            
+.bottomNav button{
+    background:none;
+    border:none;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.bottomNav button img{
+    width:26px;
+    height:26px;
+    filter:brightness(0) invert(1);
+    transition:.25s;
+}
+
+.bottomNav button:active img{
+    transform:scale(0.92);
+    filter:invert(63%) sepia(89%) saturate(1044%) hue-rotate(95deg) brightness(94%) contrast(101%);
+}
+            
+            .bottomNav button:active {
+                
+                color: #00c853;
+                
+            }
+            
+            body {
+                
+                padding-bottom: 75px;
+                
+            }
+            #00FBFF
+    </style>
+</head>
+
+<body>
+    
+    <!-- Top Bar -->
+<header class="topbar">
+
+    <div id="profileBtn" class="icon">
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+        viewBox="0 0 24 24" fill="none" stroke="white"
+        stroke-width="2.3" stroke-linecap="round"
+        stroke-linejoin="round">
+
+            <path d="M20 21a8 8 0 0 0-16 0"/>
+            <circle cx="12" cy="8" r="4"/>
+
+        </svg>
+
+    </div>
+
+    <h2>S CHAT</h2>
+
+    <div id="settingsBtn" class="icon">
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+        viewBox="0 0 24 24" fill="none" stroke="white"
+        stroke-width="2.2" stroke-linecap="round"
+        stroke-linejoin="round">
+
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9A1.65 1.65 0 0 0 10 3.09V3a2 2 0 1 1 4 0v.09A1.65 1.65 0 0 0 15 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9H20a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-.51 2z"/>
+
+        </svg>
+
+    </div>
+
+</header>
+    
+    <!-- Search -->
+<div class="searchBox" id="searchBox">
+
+    <input type="text"
+    id="searchFriend"
+    placeholder="Search Friends...">
+
+</div>
+    
+    <!-- Friends -->
+<div class="friendsSection">
+
+    <h3 id="friendsCount">
+        Friends - 0
+    </h3>
+
+    <div id="friendsList">
+
+        <div class="friendCard">
+
+            <div class="profile">
+                <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/person-badge.svg" alt="User">
+            </div>
+
+            <div class="info">
+
+                <h4>No Friends</h4>
+
+                <p>
+                    Accept requests to start chatting
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+    
+    <!-- Bottom Navigation -->
+    
+<div class="bottomNav">
+
+<button id="homeNav" class="navBtn">
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+<path d="M3 10.5L12 3l9 7.5"/>
+<path d="M5 9.5V20h14V9.5"/>
+<path d="M10 20v-6h4v6"/>
+</svg>
+</button>
+
+  <button id="chatNav" class="navBtn">
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+<path d="M21 15a3 3 0 0 1-3 3H8l-5 3V6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/>
+<path d="M8 9h8"/>
+<path d="M8 13h5"/>
+</svg>
+</button>
+
+</div>
+    <script type="module" src="chat.js"></script>
+    
+</body>
+
+</html>
