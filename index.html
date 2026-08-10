@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S Chat</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    color:white;
+}
+
+.container{
+    border:1.1px solid black;
+    width:90%;
+    max-width:400px;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,0.4);
+}
+
+.logo{
+    color:#00C8FF;
+    text-align:center;
+    font-size:32px;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+.form{
+    display:flex;
+    flex-direction:column;
+}
+
+input{
+    padding:12px;
+    margin:8px 0;
+    border:0.2px solid black;
+    color:black;
+    border-radius:8px;
+    background:white;
+    color:#0f0f0f;
+    outline:none;
+}
+
+input::placeholder{
+    color:#cbd5e1;
+}
+
+button{
+    padding:12px;
+    margin-top:12px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+.switch-text{
+    text-align:center;
+    margin-top:15px;
+}
+
+.switch-btn{
+    font-weight:700;
+    background:none;
+    color:#60a5fa;
+    margin-top:5px;
+}
+
+.hidden{
+    display:none;
+}
+
+</style>
+</head>
+<body>
+    
+<div class="container">
+
+    <div class="logo">S CHAT</div>
+
+    <!-- LOGIN FORM -->
+    <div id="loginForm" class="form">
+
+        <input id="loginEmail" type="email" placeholder="Email">
+
+        <input id="loginPassword" type="password" placeholder="Password">
+
+        <button id="loginBtn">Login </button>
+
+        <div class="switch-text">
+            New User?
+            <br>
+            <button class="switch-btn" onclick="showSignup()">
+                Sign Up
+            </button>
+        </div>
+
+    </div>
+
+    <!-- SIGNUP FORM -->
+    <div id="signupForm" class="form hidden">
+
+        <input id="signupUsername" type="text" placeholder="Username">
+
+        <input id="signupEmail" type="email" placeholder="Email">
+
+        <input id="signupPassword" type="password" placeholder="Create Password">
+
+        <button id="signupBtn">Sign Up</button>
+
+        <div class="switch-text">
+            Already Have Account?
+            <br>
+            <button class="switch-btn" onclick="showLogin()">
+                Login
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function showSignup(){
+    document.getElementById("loginForm")
+    .classList.add("hidden");
+
+    document.getElementById("signupForm")
+    .classList.remove("hidden");
+}
+
+function showLogin(){
+    document.getElementById("signupForm")
+    .classList.add("hidden");
+
+    document.getElementById("loginForm")
+    .classList.remove("hidden");
+}
+</script>
+<script type="module" src="script.js"></script>
+
+</body>
+</html>

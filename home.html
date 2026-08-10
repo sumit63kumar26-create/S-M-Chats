@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S Chat - Home</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#0f0f0f;
+    color:white;
+    min-height:100vh;
+    padding-bottom:80px;
+}
+
+.topbar{
+
+    position:sticky;
+    top:0;
+
+    background:#1b1b1b;
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    padding:14px 16px;
+
+    border-bottom:1px solid #333;
+
+    z-index:100;
+
+}
+
+.topbar h2{
+
+    font-size:22px;
+    font-weight:bold;
+    white-space:nowrap;
+
+}
+
+.searchWrap{
+
+    flex:1;
+
+}
+
+.searchWrap input{
+
+    width:100%;
+
+    height:42px;
+
+    border:0.1px solid gray;
+    outline:none;
+
+    border-radius:14px;
+
+    background:#252525;
+
+    color:white;
+
+    padding:0 15px;
+
+    font-size:15px;
+
+    transition:.25s;
+    
+}
+
+.searchWrap input:focus{
+
+    transform:translateY(-2px);
+    
+    border-color:#00C8FF;
+}
+
+.topIcon{
+
+    width:42px;
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#252525;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.topIcon:active{
+
+    transform:scale(.92);
+
+}
+
+.section{
+    margin:18px 14px;
+}
+
+.section h3{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    font-size:18px;
+    font-weight:700;
+
+    margin-bottom:14px;
+
+    color:#F8FAFC;
+}
+
+.searchCard{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:#1b2940;
+    border:1px solid rgba(255,255,255,.08);
+
+    padding:14px 16px;
+    margin-bottom:14px;
+
+    border-radius:18px;
+
+    transition:.25s;
+}
+
+.searchCard:active{
+    transform:scale(.98);
+}
+
+.searchUser{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.searchAvatar{
+    width:46px;
+    height:46px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#38bdf8,#2563eb);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:#fff;
+    font-size:20px;
+    font-weight:bold;
+
+    flex-shrink:0;
+}
+
+.searchInfo h4{
+    font-size:18px;
+    font-weight:600;
+    color:#fff;
+}
+
+.searchInfo p{
+    font-size:13px;
+    color:#94a3b8;
+    margin-top:3px;
+}
+
+.sendRequestBtn{
+
+    background:#38bdf8;
+    color:#08121f;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:12px;
+
+    font-size:14px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.sendRequestBtn:active{
+    transform:scale(.95);
+}
+
+.sendRequestBtn:hover{
+    background:#0ea5e9;
+}
+
+.emptyCard{
+
+    text-align:center;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:28px 18px;
+
+}
+
+.emptyCard h4{
+
+    font-size:18px;
+
+}
+
+.emptyCard p{
+
+    color:#94A3B8;
+
+    font-size:14px;
+
+}
+
+.card{
+
+    width:100%;
+
+    background:#0f0f0f;
+
+    border:0.1px solid #F8F8F8;
+
+    border-radius:16px;
+
+    padding:16px;
+
+    margin-bottom:12px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.25);
+
+    transition:.25s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-2px);
+
+    border-color:#38BDF8;
+
+}
+            /* Bottom Navigation */
+            
+            .bottomNav {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 40px;
+                
+                background:#1b1b1b;
+                
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                
+                border-top: 1px solid #333;
+            }
+            
+           .bottomNav button{
+    background:none;
+    border:none;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.bottomNav button img{
+    width:26px;
+    height:26px;
+    filter:brightness(0) invert(1);
+    transition:.25s;
+}
+
+.bottomNav button:active img{
+    transform:scale(0.92);
+    filter:invert(63%) sepia(89%) saturate(1044%) hue-rotate(95deg) brightness(94%) contrast(101%);
+}
+            
+            .bottomNav button:active {
+                
+                color: #00c853;
+                
+            }
+            
+            body {
+                
+                padding-bottom: 75px;
+                
+            }
+
+.appTitle{
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+    margin-bottom:18px;
+
+    color:white;
+
+    letter-spacing:1px;
+    
+    background-color:#6DCEDD;
+    
+    width:335px;
+    
+    border:2px solid #DEE1E7;
+    border-radius: 8px;
+
+}
+
+.requestCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    background: linear-gradient(180deg, #1d2940, #192436);
+    
+    border: 1px solid rgba(255, 255, 255, .06);
+    border-radius: 20px;
+    
+    padding: 16px 18px;
+    margin-bottom: 16px;
+    
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
+    
+    transition: .25s;
+}
+
+.requestCard:active {
+    transform: scale(.99);
+}
+
+.requestLeft {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.avatar {
+    width: 56px;
+    height: 56px;
+    
+    border-radius: 50%;
+    
+    background: linear-gradient(135deg, #4F8CFF, #6A5BFF);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 24px;
+    font-weight: 700;
+    
+    color: #fff;
+    
+    flex-shrink: 0;
+    
+    box-shadow: 0 0 16px rgba(79, 140, 255, .35);
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.userInfo h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 4px;
+}
+
+.userInfo p {
+    font-size: 14px;
+    color: #8fa3bf;
+    margin: 0;
+}
+
+.requestButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.acceptBtn,
+.rejectBtn {
+    
+    width: 95px;
+    height: 38px;
+    
+    border: none;
+    border-radius: 12px;
+    
+    font-size: 14px;
+    font-weight: 600;
+    
+    cursor: pointer;
+    
+    transition: .2s;
+}
+
+.acceptBtn {
+    background: #2563eb;
+    color: #fff;
+}
+
+.acceptBtn:active {
+    background: #1d4ed8;
+    transform: scale(.95);
+}
+
+.rejectBtn {
+    background: #2b3548;
+    color: #d6dce7;
+}
+
+.rejectBtn:active {
+    background: #3a475f;
+    transform: scale(.95);
+}
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+
+<header class="topbar">
+
+    <button id="notificationBtn" class="topIcon">
+
+        <svg xmlns="http://www.w3.org/2000/svg"
+        width="24" height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="white"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round">
+
+            <path d="M18 8a6 6 0 10-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 01-3.46 0"/>
+
+        </svg>
+
+    </button>
+
+    <h2>S CHAT</h2>
+
+    <div class="searchWrap">
+
+        <input
+        id="searchInput"
+        type="text"
+        placeholder="Search Users">
+
+    </div>
+
+    <button id="searchBtn" class="topIcon">
+
+        <svg xmlns="http://www.w3.org/2000/svg"
+        width="26"
+        height="26"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="white"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round">
+
+            <path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/>
+            <circle cx="9.5" cy="7" r="4"/>
+            <path d="M19 8v6"/>
+            <path d="M16 11h6"/>
+
+        </svg>
+
+    </button>
+
+</header>
+
+    <!-- Search Results -->
+<!-- Requested -->
+<div class="section" id="requestSection">
+    
+    <h3 id="requestCount">
+        Requested - 0
+    </h3>
+
+    <div id="requestList">
+
+<div class="card emptyCard">
+
+    <svg xmlns="http://www.w3.org/2000/svg"
+    width="42"
+    height="42"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="#38BDF8"
+    stroke-width="2">
+
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+
+    </svg>
+
+    <h4>No Requests</h4>
+
+    <p>Friend requests will appear here.</p>
+
+</div> 
+    </div>
+
+</div>
+
+<!-- Search Results -->
+<div class="section" id="searchSection" style="display:none;">
+
+    <h3>Search Results</h3>
+
+    <div id="searchResults"></div>
+
+</div>
+
+</div>
+
+<div class="bottomNav">
+
+<button id="homeNav" class="navBtn">
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+<path d="M3 10.5L12 3l9 7.5"/>
+<path d="M5 9.5V20h14V9.5"/>
+<path d="M10 20v-6h4v6"/>
+</svg>
+</button>
+
+  <button id="chatNav" class="navBtn">
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+<path d="M21 15a3 3 0 0 1-3 3H8l-5 3V6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/>
+<path d="M8 9h8"/>
+<path d="M8 13h5"/>
+</svg>
+</button>
+
+</div>
+
+<script type="module" src="home.js"></script>
+</body>
+</html>
