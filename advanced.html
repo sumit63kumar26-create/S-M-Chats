@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Advanced Features</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+
+background:#0f0f0f;
+color:white;
+
+}
+
+.topBar{
+
+height:60px;
+display:flex;
+align-items:center;
+padding:0 15px;
+background:#1E1E1E;
+border-bottom:0.1px solid white;
+}
+
+#backBtn{
+
+background:none;
+border:none;
+color:white;
+font-size:50px;
+margin-right:15px;
+margin-top: -20px;
+
+}
+
+.title{
+
+font-size:15px;
+font-weight:bold;
+
+}
+
+.container{
+
+padding:15px;
+
+}
+
+.card{
+
+background:#1E1E1E;
+border:0.1px solid white;
+border-radius:18px;
+padding:18px;
+margin-bottom:15px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+}
+
+.cardTitle{
+
+font-size:17px;
+font-weight:800;
+
+}
+
+.switch{
+
+width:22px;
+height:22px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="topBar">
+
+<button id="backBtn">
+←
+</button>
+
+<div class="title">
+
+Advanced Features
+
+</div>
+
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<div class="cardTitle">
+
+Search Bar
+
+</div>
+
+<input
+type="checkbox"
+id="searchToggle"
+class="switch">
+
+</div>
+
+</div>
+
+<script type="module"
+src="advanced.js">
+</script>
+
+</body>
+</html>
